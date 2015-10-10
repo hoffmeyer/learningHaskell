@@ -20,3 +20,11 @@ elementAt xs i = xs !! (i - 1)
 myLength :: [a] -> Int
 myLength [] = 0
 myLength (_:xs) = 1 + myLength xs
+
+-- 5
+myReverse :: [a] -> [a]
+myReverse [] = []
+myReverse (x:xs) = myReverse xs ++ [x]
+myReverse' = foldl (flip (:)) []
+
+--6
