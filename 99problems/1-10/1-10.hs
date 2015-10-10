@@ -27,4 +27,15 @@ myReverse [] = []
 myReverse (x:xs) = myReverse xs ++ [x]
 myReverse' = foldl (flip (:)) []
 
---6
+-- 6
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome [] = True
+isPalindrome [_] = True
+isPalindrome (x:xs) = if x /= last xs
+                        then False
+                        else isPalindrome (init xs)
+isPalindrome' xs = xs == (reverse xs)
+
+-- 7
+data NestedList a = Elem a | List [NestedList a]
+--flatten :: Elem a -> [a]
