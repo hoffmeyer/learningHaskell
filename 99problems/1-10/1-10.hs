@@ -38,4 +38,15 @@ isPalindrome' xs = xs == (reverse xs)
 
 -- 7
 data NestedList a = Elem a | List [NestedList a]
---flatten :: Elem a -> [a]
+flatten :: NestedList a -> [a]
+flatten (Elem x) = [x]
+flatten (List []) = []
+flatten (List [x]) = flatten x
+flatten (List (x:xs)) = flatten x ++ flatten (List xs)
+
+flatten' (Elem x) = [x]
+flatten' (List x) = concatMap flatten x
+
+-- 8
+compress :: [a] -> [a]
+compress x = x
