@@ -48,5 +48,6 @@ flatten' (Elem x) = [x]
 flatten' (List x) = concatMap flatten x
 
 -- 8
-compress :: [a] -> [a]
-compress x = x
+compress :: (Eq a) => [a] -> [a]
+compress [] = []
+compress (x:xs) = x : (compress $ dropWhile( == x) xs)
