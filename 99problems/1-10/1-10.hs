@@ -1,3 +1,4 @@
+import Data.List
 -- 1
 myLast :: [a] -> a
 myLast [] = error "No end for empty lists"
@@ -51,3 +52,7 @@ flatten' (List x) = concatMap flatten x
 compress :: (Eq a) => [a] -> [a]
 compress [] = []
 compress (x:xs) = x : (compress $ dropWhile( == x) xs)
+
+-- 9
+pack x = group x
+-- needs a proper implementation, this feels like cheating
