@@ -55,4 +55,9 @@ compress (x:xs) = x : (compress $ dropWhile( == x) xs)
 
 -- 9
 pack x = group x
--- needs a proper implementation, this feels like cheating
+pack' [] = []
+
+-- 10
+encode [] = []
+encode xs = map compressElem ( pack xs )
+    where compressElem xs = ( length xs, head xs)
