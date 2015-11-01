@@ -49,7 +49,7 @@ flatten' (Elem x) = [x]
 flatten' (List x) = concatMap flatten x
 
 -- 8
-compress :: (Eq a) => [a] -> [a]
+compress :: Eq a => [a] -> [a]
 compress [] = []
 compress (x:xs) = x : (compress $ dropWhile( == x) xs)
 
@@ -58,6 +58,23 @@ pack x = group x
 pack' [] = []
 
 -- 10
+encode :: Eq a => [a] -> [(Int, a)]
 encode [] = []
 encode xs = map compressElem ( pack xs )
     where compressElem xs = ( length xs, head xs)
+encode' xs = [(length x, head x) | x <- group xs]
+
+-- 11
+data Elem a = Multiple Int a | Single a 
+    deriving (Show)
+encodeModified :: Eq a => [a] -> [Elem a]
+encodeModified = map encodeHelper . encode
+    where
+        encodeHelper (1,x) = Single x
+        encodeHelper (n,x) = Multiple n x
+
+-- 12
+decodeModified :: [Elem a] -> [a]
+decodeModified = map decodeHelper 
+    where
+        decodeHelper Single
