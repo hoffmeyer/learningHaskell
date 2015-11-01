@@ -75,6 +75,8 @@ encodeModified = map encodeHelper . encode
 
 -- 12
 decodeModified :: [Elem a] -> [a]
-decodeModified = map decodeHelper 
+decodeModified = concatMap decodeHelper 
     where
-        decodeHelper Single
+        decodeHelper :: Elem a -> [a]
+        decodeHelper (Single x) = [x]
+        decodeHelper (Multiple n x) = replicate n x
