@@ -55,7 +55,6 @@ compress (x:xs) = x : (compress $ dropWhile( == x) xs)
 
 -- 9
 pack x = group x
-pack' [] = []
 
 -- 10
 encode :: Eq a => [a] -> [(Int, a)]
@@ -80,3 +79,34 @@ decodeModified = concatMap decodeHelper
         decodeHelper :: Elem a -> [a]
         decodeHelper (Single x) = [x]
         decodeHelper (Multiple n x) = replicate n x
+
+-- 13
+encodeDirect :: Eq a => [a] -> [Elem a]
+encodeDirect = map encodeHelper . group
+    where
+        encodeHelper [x] = Single x
+        encodeHelper xs = Multiple (length xs) (head xs)
+
+--14
+dupli :: [a] -> [a]
+dupli [] = []
+dupli (x:xs) = x:x:dupli xs
+dupli' list =  concat [[x,x] | x <- list]
+
+--15
+repli :: [a] -> Int -> [a]
+repli xs n = concat [ replicate n x | x <- xs]
+repli' xs n = concatMap (replicate n) xs
+
+--16
+dropEvery :: [a] -> Int -> [a]
+dropEvery xs n = recur n 1 xs
+    where
+        recur :: Int -> Int -> [a] -> [a]
+        recur _ _ [] = []
+        recur n i (x:xs) = if i == n
+            then recur n 1 xs
+            else x:recur n (i+1) xs
+
+--17
+
