@@ -109,4 +109,13 @@ dropEvery xs n = recur n 1 xs
             else x:recur n (i+1) xs
 
 --17
-
+split :: [a] -> Int -> ([a],[a])
+split xs n = ( take n xs, drop n xs)
+split' xs n = splitHelper [] xs n
+    where 
+        splitHelper :: [a] -> [a] -> Int -> ([a], [a])
+        splitHelper ys xs n  
+            | length ys == n    = (ys, xs)
+            | otherwise         = splitHelper (ys ++ [(head xs)]) (tail xs) n
+split'' (x:xs) n | n > 0 = let (f,l) = split'' xs (n-1) in (x : f, l)
+split'' xs _             = ([], xs)
