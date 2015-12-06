@@ -35,7 +35,7 @@ isPalindrome [_] = True
 isPalindrome (x:xs) = if x /= last xs
                         then False
                         else isPalindrome (init xs)
-isPalindrome' xs = xs == (reverse xs)
+isPalindrome' xs = xs == reverse xs
 
 -- 7
 data NestedList a = Elem a | List [NestedList a]
@@ -51,10 +51,10 @@ flatten' (List x) = concatMap flatten x
 -- 8
 compress :: Eq a => [a] -> [a]
 compress [] = []
-compress (x:xs) = x : (compress $ dropWhile( == x) xs)
+compress (x:xs) = x : compress (dropWhile (== x) xs)
 
 -- 9
-pack x = group x
+pack = group
 
 -- 10
 encode :: Eq a => [a] -> [(Int, a)]
@@ -64,7 +64,7 @@ encode xs = map compressElem ( pack xs )
 encode' xs = [(length x, head x) | x <- group xs]
 
 -- 11
-data Elem a = Multiple Int a | Single a 
+data Elem a = Multiple Int a | Single a
     deriving (Show)
 encodeModified :: Eq a => [a] -> [Elem a]
 encodeModified = map encodeHelper . encode
@@ -74,7 +74,7 @@ encodeModified = map encodeHelper . encode
 
 -- 12
 decodeModified :: [Elem a] -> [a]
-decodeModified = concatMap decodeHelper 
+decodeModified = concatMap decodeHelper
     where
         decodeHelper :: Elem a -> [a]
         decodeHelper (Single x) = [x]
@@ -111,11 +111,11 @@ dropEvery xs n = recur n 1 xs
 --17
 split :: [a] -> Int -> ([a],[a])
 split xs n = ( take n xs, drop n xs)
-split' xs n = splitHelper [] xs n
-    where 
+split' = splitHelper []
+    where
         splitHelper :: [a] -> [a] -> Int -> ([a], [a])
-        splitHelper ys xs n  
+        splitHelper ys xs n
             | length ys == n    = (ys, xs)
-            | otherwise         = splitHelper (ys ++ [(head xs)]) (tail xs) n
+            | otherwise         = splitHelper (ys ++ [head xs]) (tail xs) n
 split'' (x:xs) n | n > 0 = let (f,l) = split'' xs (n-1) in (x : f, l)
 split'' xs _             = ([], xs)

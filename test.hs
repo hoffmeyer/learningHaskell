@@ -14,4 +14,4 @@ bmiTell weight height
             skinny = 18.5
             normal = 25.0
             fat = 30.0
-    
+
