@@ -26,6 +26,7 @@ myLength (_:xs) = 1 + myLength xs
 myReverse :: [a] -> [a]
 myReverse [] = []
 myReverse (x:xs) = myReverse xs ++ [x]
+myReverse' :: [a] -> [a]
 myReverse' = foldl (flip (:)) []
 
 -- 6
@@ -54,7 +55,7 @@ compress [] = []
 compress (x:xs) = x : compress (dropWhile (== x) xs)
 
 -- 9
-pack = group
+pack x = group x
 
 -- 10
 encode :: Eq a => [a] -> [(Int, a)]
@@ -119,3 +120,24 @@ split' = splitHelper []
             | otherwise         = splitHelper (ys ++ [head xs]) (tail xs) n
 split'' (x:xs) n | n > 0 = let (f,l) = split'' xs (n-1) in (x : f, l)
 split'' xs _             = ([], xs)
+
+--18
+slice :: [a] -> Int -> Int -> [a]
+slice xs a b = drop (a - 1) $ take b xs
+
+--19
+rotate :: [a] -> Int -> [a]
+rotate xs n = zipWith const (drop m (cycle xs)) xs
+  where m = if n > 0 then n else length xs + n
+
+--20
+removeAt :: Int -> [a] -> (a, [a])
+removeAt n xs = (last  a, init a ++  b)
+  where
+    (a,b) = splitAt n xs
+removeAt' :: Int -> [a] -> (a, [a])
+removeAt' k xs = case back of
+                   [] -> error "removeAt: index too large"
+                   x:rest -> (x, front ++ rest)
+            where (front, back) = splitAt (k - 1) xs
+
