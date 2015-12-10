@@ -140,4 +140,18 @@ removeAt' k xs = case back of
                    [] -> error "removeAt: index too large"
                    x:rest -> (x, front ++ rest)
             where (front, back) = splitAt (k - 1) xs
+--21
+insertAt :: a -> [a] -> Int -> [a]
+insertAt x xs n = a ++ [x] ++ b
+  where
+    (a,b) = splitAt (n-1) xs
+insertAt' x ys 1 = x:ys
+insertAt' x (y:ys) n = y:insertAt x ys (n-1)
 
+--22
+range :: Int -> Int -> [Int]
+range a b
+  | a > b = reverse (range b a)
+  | a == b = [b]
+  | otherwise = a:range (a+1) b
+range' x y = [x..y]
