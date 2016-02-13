@@ -1,3 +1,5 @@
+import           Data.List
+
 -- 1
 data Person = Person Bool deriving Show
 
@@ -66,3 +68,39 @@ f = 1.0
 -- 3)
 f' :: Fractional a => a
 f' = 1.0
+
+-- 4) Yes
+f'' :: RealFrac a => a
+f'' = 1.0
+
+-- 5) Yes
+freud :: Ord a => a -> a
+freud x = x
+
+-- 6) Yes
+freud' :: Int -> Int
+freud' x = x
+
+-- 7) No vil altid returnere Int ikke Num som type
+myX = 1 :: Int
+sigmund :: Int -> Int
+sigmund x = myX
+
+-- 8) No same as above
+sigmund' :: Int -> Int
+sigmund' x = myX
+
+-- 9) Yes
+jung :: [Int] -> Int
+jung xs = head (sort xs)
+
+-- 10) Yes
+young :: Ord a => [a] -> a
+young xs = head (sort xs)
+
+-- 11) No has to be [Char]
+mySort :: [Char] -> [Char]
+mySort = sort
+
+signifier :: [Char] -> Char
+signifier xs = head (mySort xs)
