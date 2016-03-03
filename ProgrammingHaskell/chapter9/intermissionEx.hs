@@ -1,12 +1,12 @@
 module IntermissionEx where
 
-myWords :: String -> [String]
-myWords s = go s []
-    where 
-        go :: String -> [String] -> [String]
-        go s ss 
+myWords :: String -> Char -> [String]
+myWords s c = go s c []
+    where
+        go :: String -> Char -> [String] -> [String]
+        go s c ss
             | s == [] = ss
-            | otherwise = go ( dropWhile (== ' ')  $ dropWhile (/= ' ') s) ( ss ++ [takeWhile (/= ' ') s])
+            | otherwise = go ( dropWhile (== c) $ dropWhile (/= c) s) c ( ss ++ [takeWhile (/= c) s])
 
 firstSen  = "Tyger Tyger, burning bright\n"
 secondSen = "In the forests of the night\n"
@@ -17,10 +17,10 @@ sentences = firstSen ++ secondSen
           ++ thirdSen ++ fourthSen
 
 myLines :: String -> [String]
-myLines = undefined
+myLines s = myWords s '\n'
 
 shouldEqual =
-  [ "tyger Tyger, burning bright"
+  [ "Tyger Tyger, burning bright"
   , "In the forests of the night"
   , "What immortal hand or eye"
   , "Could frame thy fearful symmetry?"
@@ -29,4 +29,4 @@ shouldEqual =
 main :: IO ()
 main =
   print $ "Are they equal? "
-         ++ show (myLines sentences == shouldEqual) 
+         ++ show (myLines sentences == shouldEqual)
