@@ -32,3 +32,23 @@ myReverse (x:xs) = myReverse xs ++ [x]
 squish :: [[a]] -> [a]
 squish [] = []
 squish (x:xs) = x ++ squish xs
+
+squishMap :: (a -> [b]) -> [a] -> [b]
+squishMap f xs = squish $ map f xs 
+
+squishAgain :: [[a]] -> [a]
+squishAgain xs = squishMap id xs
+
+myMaximumBy :: (a -> a -> Ordering) -> [a] -> a
+myMaximumBy _ (x:[]) = x 
+myMaximumBy f (x:(y:ys)) = myMaximumBy f rest
+    where rest = if f x y == GT then (x:ys) else (y:ys)
+
+myMinimumBy :: (a -> a -> Ordering) -> [a] -> a
+myMinimumBy f = myMaximumBy (flip f)
+
+myMaximum :: (Ord a) => [a] -> a
+myMaximum xs = myMaximumBy compare xs
+
+myMinimum :: (Ord a) => [a] -> a
+myMinimum xs = myMinimumBy compare xs
