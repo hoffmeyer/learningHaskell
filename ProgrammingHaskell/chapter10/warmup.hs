@@ -24,4 +24,4 @@ seekritFunc x =
 
 -- 3)
 seekritFuncFrac x =
-  (fromIntegral (sum (map length (words x)))) / (fromIntegral (length (words x)))
+  fromIntegral (sum (map length (words x))) / fromIntegral (length (words x))
