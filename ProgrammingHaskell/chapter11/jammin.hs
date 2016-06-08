@@ -30,3 +30,10 @@ totalJamJars = sum numJars
 
 mostRow = foldr1  (\x y -> if  num x > num y then x else y) allJam
 
+compareKind (Jam k _) (Jam k' _) = compare k k'
+
+sortedJams = sortBy compareKind allJam
+
+equalKind (Jam k _) (Jam k' _) = k == k'
+
+groupJams = groupBy equalKind sortedJams
