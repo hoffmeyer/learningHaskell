@@ -14,7 +14,6 @@ data JamJars =
                 , num :: Int }
                 deriving (Ord, Eq, Show)
 
-
 row1 = Jam Peach 1
 row2 = Jam Plum 19
 row3 = Jam Apple 11
