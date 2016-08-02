@@ -17,7 +17,7 @@ isVowel c = c `elem` "aeiou"
 
 
 countTheBeforeVowel :: String -> Integer
-countTheBeforeVowel s = countThe . words $ s
+countTheBeforeVowel = countThe . words
         where
                 countThe [word] = 0
                 countThe (fst:rest@(snd:_)) = if fst == "the" && isVowel (head snd)
@@ -137,3 +137,16 @@ myUnfoldr f x = case f x of
 
 betterIterate :: (a -> a) -> a -> [a]
 betterIterate f = myUnfoldr (\ x -> Just (x, f x))
+
+-- Binary Tree unfold
+data BinaryTree a = Leaf
+                  | Node (BinaryTree a) a (BinaryTree a)
+                  deriving (Eq, Ord, Show)
+
+unfold :: ( a -> Maybe (a, b, a)) -> a -> BinaryTree b
+unfold f x = case f x of
+               Nothing -> Leaf
+               Just (x', y', z') -> Node (unfold f x') y' (unfold f z')
+
+treeBuild :: Integer -> BinaryTree Integer
+treeBuild n = unfold (\x -> if x < n then Just (x+1, x, x+1) else Nothing) 0
