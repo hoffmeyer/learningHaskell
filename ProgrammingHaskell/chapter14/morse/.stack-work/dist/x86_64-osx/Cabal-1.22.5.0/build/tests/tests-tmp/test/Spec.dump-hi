@@ -1,0 +1,194 @@
+
+==================== FINAL INTERFACE ====================
+2016-08-11 18:29:04.211198 UTC
+
+interface main@main:Main 7103
+  interface hash: e5495cda6e6f1943ef8d771f173494d7
+  ABI hash: 74bcf629ef49178c43ab9fc68eb3ce03
+  export-list hash: ae97c281656fe12ce1bb9ff6de95be1d
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 76b557a60e2276bf61e91e94d2478e23
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.allowedChars
+  Main.allowedMorse
+  Main.charGen
+  Main.main
+  Main.morseGen
+  Main.prop_thereAndBackAgain
+module dependencies:
+package dependencies: QuickCheck-2.8.2@Quick_6TxL5Cx3o2p0HsyT59KWiD
+                      array-0.5.1.0@array_67iodizgJQIIxYVTp4emlA base-4.8.2.0*
+                      containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU
+                      deepseq-1.4.1.1@deeps_6vMKxt5sPFR0XsbRWvvq59 ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0 morse-0.1.0.0@morse_GHEFketzPYG0lkCMctxia5
+                      pretty-1.1.2.0@prett_JItwetRppk1H5Uq3xbjDGC
+                      primitive-0.6.1.0@primi_EphY2c7CCxSCBKjAN0YTR3
+                      random-1.1@rando_9Kgekc9yEaLHLNUuw6paWL template-haskell-2.10.0.0
+                      tf-random-0.5@tfran_1eLmkn3WUnC8NZpPuDLGKF
+                      time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn
+                      transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF
+orphans: base-4.8.2.0:GHC.Base base-4.8.2.0:GHC.Float
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.Calendar.Gregorian
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.Format.Parse
+         time-1.5.0.1@time_FTheb6LSxyX1UABIbBXRfn:Data.Time.LocalTime.LocalTime
+         transformers-0.4.2.0@trans_GZTjP9K5WFq01xC9BAGQpF:Control.Monad.Trans.Error
+family instance modules: base-4.8.2.0:Control.Applicative
+                         base-4.8.2.0:Data.Either base-4.8.2.0:Data.Functor.Identity
+                         base-4.8.2.0:Data.Monoid base-4.8.2.0:Data.Type.Equality
+                         base-4.8.2.0:Data.Void base-4.8.2.0:GHC.Exts
+                         base-4.8.2.0:GHC.Generics
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntMap.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.IntSet.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Sequence
+                         containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Set.Base
+                         pretty-1.1.2.0@prett_JItwetRppk1H5Uq3xbjDGC:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.1.0@primi_EphY2c7CCxSCBKjAN0YTR3:Control.Monad.Primitive
+                         template-haskell-2.10.0.0:Language.Haskell.TH.Syntax
+import  -/  QuickCheck-2.8.2@Quick_6TxL5Cx3o2p0HsyT59KWiD:Test.QuickCheck 7e615a40a74c9052467718d8c88a3cda
+import  -/  QuickCheck-2.8.2@Quick_6TxL5Cx3o2p0HsyT59KWiD:Test.QuickCheck.Gen 4a20a4a88f5908339c1e12f3bf07121a
+import  -/  QuickCheck-2.8.2@Quick_6TxL5Cx3o2p0HsyT59KWiD:Test.QuickCheck.Property e438b07f9d2d9b82e13de1637fb4ad1b
+import  -/  QuickCheck-2.8.2@Quick_6TxL5Cx3o2p0HsyT59KWiD:Test.QuickCheck.Test d0a12736aa8c893fb82b51aab2f11dc6
+import  -/  base-4.8.2.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.2.0:Prelude 694dcaf039efe62df1c44834e2dbd2fb
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map bf7758bd12b23a367777a33fd16e39de
+import  -/  containers-0.5.6.2@conta_2C3ZI8RgPO2LBMidXKTvIU:Data.Map.Base 8b0bee2cbf19008d0429e93c882cbe4e
+import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  morse-0.1.0.0@morse_GHEFketzPYG0lkCMctxia5:Morse fc55681328c8afd097aaad7799e24347
+0a5255f1369befc708061f7dca1f30db
+  allowedChars :: [GHC.Types.Char]
+  {- Unfolding: (Data.Map.Base.keys1
+                   @ GHC.Types.Char
+                   @ [GHC.Types.Char]
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   Morse.letterToMorse) -}
+538a48e770785eefc18229f610775b3c
+  allowedMorse :: [Morse.Morse]
+  {- Unfolding: (Data.Map.Base.elems1
+                   @ GHC.Types.Char
+                   @ [GHC.Types.Char]
+                   (GHC.Types.[] @ [GHC.Types.Char])
+                   Morse.letterToMorse) -}
+c4550a39c1b12fd7d837e99401bcae3c
+  charGen :: Test.QuickCheck.Gen.Gen GHC.Types.Char
+  {- Unfolding: (Test.QuickCheck.Gen.elements
+                   @ GHC.Types.Char
+                   Main.allowedChars) -}
+227044014efe341fe1b3d871d973753b
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+839a22441f2a895b841163e8f1a5101a
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case Test.QuickCheck.Test.$wa7
+                        @ Test.QuickCheck.Property.Property
+                        Test.QuickCheck.Property.$fTestableProperty
+                        (GHC.Base.Nothing @ (Test.QuickCheck.Random.QCGen, GHC.Types.Int))
+                        Test.QuickCheck.Test.stdArgs2
+                        Test.QuickCheck.Test.stdArgs1
+                        Test.QuickCheck.Test.stdArgs2
+                        GHC.Types.True
+                        Main.main2
+                          `cast`
+                        (Trans
+                             (Sym (Test.QuickCheck.Gen.NTCo:Gen[0]
+                                       <Test.QuickCheck.Property.Prop>_R))
+                             (Sym (Test.QuickCheck.Property.NTCo:Property[0])))
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, GHC.Tuple.() #) }) -}
+fc772cb3b142914ae84058fc512ec958
+  main2 ::
+    Test.QuickCheck.Random.QCGen
+    -> GHC.Types.Int -> Test.QuickCheck.Property.Prop
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,1*U,A,A)><L,U>,
+     Unfolding: (\ eta :: Test.QuickCheck.Random.QCGen
+                   eta1 :: GHC.Types.Int ->
+                 let {
+                   ds1 :: (System.Random.TF.Gen.TFGen, System.Random.TF.Gen.TFGen)
+                   = case eta
+                            `cast`
+                          (Test.QuickCheck.Random.NTCo:QCGen[0]) of ww { System.Random.TF.Gen.TFGen ww1 ww2 ww3 ww4 ww5 ww6 ->
+                     case System.Random.TF.Gen.$wtfGenSplit
+                            ww1
+                            ww2
+                            ww3
+                            ww4 of ww7 { (#,#) ww8 ww9 ->
+                     (ww8, ww9) } }
+                 } in
+                 let {
+                   x :: GHC.Types.Char
+                   = Main.charGen
+                       `cast`
+                     (Test.QuickCheck.Gen.NTCo:Gen[0] <GHC.Types.Char>_R)
+                       (case ds1 of wild { (,) g1 g2 ->
+                        g1 `cast` (Sym (Test.QuickCheck.Random.NTCo:QCGen[0])) })
+                       eta1
+                 } in
+                 (Test.QuickCheck.Property.counterexample_$scounterexample1
+                    (case x of ww { GHC.Types.C# ww1 ->
+                     GHC.Show.$w$cshowsPrec15 ww1 (GHC.Types.[] @ GHC.Types.Char) })
+                    (case x of ww { GHC.Types.C# ww1 ->
+                     case Morse.$wpoly_go1
+                            @ [GHC.Types.Char]
+                            ww1
+                            Morse.letterToMorse of wild {
+                       GHC.Base.Nothing -> GHC.Types.False
+                       GHC.Base.Just x1
+                       -> case Morse.$slookup1
+                                 @ GHC.Types.Char
+                                 x1
+                                 Morse.morseToLetter of wild1 {
+                            GHC.Base.Nothing -> GHC.Types.False
+                            GHC.Base.Just a1
+                            -> case a1 of wild2 { GHC.Types.C# c1 ->
+                               GHC.Prim.tagToEnum#
+                                 @ GHC.Types.Bool
+                                 (GHC.Prim.eqChar# c1 ww1) } } } }))
+                   `cast`
+                 (Trans
+                      (Test.QuickCheck.Property.NTCo:Property[0])
+                      (Test.QuickCheck.Gen.NTCo:Gen[0]
+                           <Test.QuickCheck.Property.Prop>_R))
+                   (case ds1 of wild { (,) g1 g2 ->
+                    g2 `cast` (Sym (Test.QuickCheck.Random.NTCo:QCGen[0])) })
+                   eta1) -}
+156832cd247cb7cbb7d07784e6c0af7e
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
+f35a7530e51b95a58f4d23f393c7b523
+  morseGen :: Test.QuickCheck.Gen.Gen Morse.Morse
+  {- Unfolding: (Test.QuickCheck.Gen.elements
+                   @ Morse.Morse
+                   Main.allowedMorse) -}
+14293b1c1a465b363ed53707d42fb1ca
+  prop_thereAndBackAgain :: Test.QuickCheck.Property.Property
+  {- Arity: 2, Strictness: <L,1*U(U,U,U,1*U,A,A)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main2
+                  `cast`
+                (Trans
+                     (Sym (Test.QuickCheck.Gen.NTCo:Gen[0]
+                               <Test.QuickCheck.Property.Prop>_R))
+                     (Sym (Test.QuickCheck.Property.NTCo:Property[0]))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

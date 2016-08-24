@@ -48,7 +48,7 @@ main = do
           [arg] ->
                   case arg of
                     "from" -> convertFromMorse
-                    "to"   -> convertToMorse
+                    "to"    -> convertToMorse
                     _      -> argError
           _ -> argError
         where
