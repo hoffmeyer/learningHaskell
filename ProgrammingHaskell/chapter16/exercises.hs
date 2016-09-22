@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 module Exercises where
 
 import Test.QuickCheck
@@ -175,7 +176,7 @@ instance Functor (Quant a) where
         fmap _ (Desk a) = Desk a
 
 --2
-data K a b = K a
+data K a b = K a deriving (Eq, Show)
 
 instance Functor (K a) where
         fmap f (K a) = K a
@@ -183,4 +184,23 @@ instance Functor (K a) where
 -- 3
 newtype Flip f a b = Flip (f b a) deriving (Eq, Show)
 
-newtype 
+instance Functor (Flip K a) where
+        fmap f (Flip (K a)) = Flip $ K (f a)
+
+-- 4
+data EvilGoateeConst a b = GoatyConst b deriving (Eq, Show)
+
+instance Functor (EvilGoateeConst a) where
+        fmap f (GoatyConst b) = GoatyConst (f b)
+
+-- 5
+data LiftItOut f a = LiftItOut (f a) deriving (Eq, Show)
+
+instance Functor f => Functor (LiftItOut f) where
+        fmap f (LiftItOut fa) = LiftItOut (fmap f fa)
+
+--6
+data Parappa f g a = DaWrappa (f a) (g a) deriving (Eq, Show)
+
+instance (Functor f, Functor g) => Functor (Parappa f g) where
+        fmap f (DaWrappa fa ga) = LiftItOut (fmap f fa) (fmap f ga)
