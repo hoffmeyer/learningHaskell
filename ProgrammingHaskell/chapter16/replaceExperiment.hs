@@ -7,9 +7,8 @@ lms :: Num t => [(t, String)]
 lms = [(1, "testing"), (4, "oh no"), (3, "")]
 
 
-replaceWithP' :: Num t => [(t, String)] -> Char
+  replaceWithP' :: Num t => [(t, String)] -> Char
 replaceWithP' = replaceWithP
-
 
 liftedReplace :: Functor f => f a -> f Char
 liftedReplace = fmap replaceWithP
