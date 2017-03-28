@@ -59,7 +59,7 @@ solution e ns n = elem (values e) (choices ns) && eval e == [n]
 
 split :: [a] -> [([a],[a])]
 split []     = []
-split [_]    = []
+split [x]    = []
 split (x:xs) = ([x],xs) : [(x:ls,rs) | (ls,rs) <- split xs]
 
 exprs :: [Int] -> [Expr]
@@ -105,4 +105,4 @@ removeFirstOcc x (y:ys) | x == y = ys
                         | otherwise = y : removeFirstOcc x ys
 
 -- Exercise 3
---
+-- It never terminates because the list comprehension in exprs is stupid
